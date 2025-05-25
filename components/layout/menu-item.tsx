@@ -1,7 +1,9 @@
 import { MenuItemProps } from "@/types/menu";
+import { useLanguageContext } from "@/hooks/useLanguage";
 
 export function MenuItem({ section, onClose, currentSection }: MenuItemProps) {
   const isActive = currentSection === section.id;
+  const { t } = useLanguageContext();
 
   return (
     <li className="w-full">
@@ -18,7 +20,7 @@ export function MenuItem({ section, onClose, currentSection }: MenuItemProps) {
           ${isActive ? 'bg-slate-600' : 'bg-slate-700/50'}`}>
           {section.icon}
         </span>
-        <span className="truncate">{section.label}</span>
+        <span className="truncate">{t(`nav.${section.id}`)}</span>
       </a>
     </li>
   );

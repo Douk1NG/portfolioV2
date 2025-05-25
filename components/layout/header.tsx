@@ -2,6 +2,7 @@ import { MenuIcon, X } from "lucide-react";
 import { useMenu } from "@/hooks/useMenu";
 import { MenuItem } from "./menu-item";
 import { MenuProps } from "@/types/menu";
+import LanguageSwitcher from "@/components/shared/LanguageSwitcher";
 
 /** Mobile navigation header - for desktop, use the taskbar component */
 export default function Header(
@@ -54,6 +55,11 @@ export default function Header(
                 />
               ))}
             </ul>
+            
+            {/* Language Switcher */}
+            <div className="mt-8 px-4">
+              <LanguageSwitcher />
+            </div>
           </div>
         </div>
       </nav>

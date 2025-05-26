@@ -33,23 +33,23 @@ export function ContactForm() {
   }
 
   return (
-    <Card className="border-gray-700 bg-white/5 backdrop-blur-sm">
+    <Card className="border-border bg-card/20 backdrop-blur-sm">
       <CardContent className="p-8">
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid gap-6 sm:grid-cols-2">
             <div className="space-y-2">
-              <Label htmlFor="name" className="text-gray-300">
+              <Label htmlFor="name" className="text-foreground">
                 {t('contact.name')}
               </Label>
               <Input
                 id="name"
                 placeholder={t('contact.name.placeholder')}
                 required
-                className="border-gray-600 bg-white/10 text-white placeholder:text-gray-400 focus:border-cyan-500 focus:ring-cyan-500"
+                className="border-border bg-background text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-primary"
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="email" className="text-gray-300">
+              <Label htmlFor="email" className="text-foreground">
                 {t('contact.email')}
               </Label>
               <Input
@@ -57,39 +57,39 @@ export function ContactForm() {
                 type="email"
                 placeholder={t('contact.email.placeholder')}
                 required
-                className="border-gray-600 bg-white/10 text-white placeholder:text-gray-400 focus:border-cyan-500 focus:ring-cyan-500"
+                className="border-border bg-background text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-primary"
               />
             </div>
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="subject" className="text-gray-300">
+            <Label htmlFor="subject" className="text-foreground">
               {t('contact.subject')}
             </Label>
             <Input
               id="subject"
               placeholder={t('contact.subject.placeholder')}
               required
-              className="border-gray-600 bg-white/10 text-white placeholder:text-gray-400 focus:border-cyan-500 focus:ring-cyan-500"
+              className="border-border bg-background text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-primary"
             />
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="message" className="text-gray-300">
+            <Label htmlFor="message" className="text-foreground">
               {t('contact.message')}
             </Label>
             <Textarea
               id="message"
               placeholder={t('contact.message.placeholder')}
               required
-              className="min-h-32 border-gray-600 bg-white/10 text-white placeholder:text-gray-400 focus:border-cyan-500 focus:ring-cyan-500"
+              className="min-h-32 border-border bg-background text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-primary"
             />
           </div>
 
           <Button
             type="submit"
             disabled={isSubmitting}
-            className="w-full bg-gradient-to-r from-cyan-500 to-purple-500 text-white hover:from-cyan-600 hover:to-purple-600 disabled:opacity-50"
+            className="w-full bg-primary text-primary-foreground hover:bg-primary/90 disabled:opacity-50"
           >
             {isSubmitting ? t('contact.sending') : t('contact.send')}
             <Send className="ml-2 h-4 w-4" />

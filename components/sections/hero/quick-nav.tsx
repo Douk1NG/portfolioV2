@@ -1,4 +1,4 @@
-import { ArrowDown, User, Briefcase, Code, Mail } from "lucide-react"
+import { User, Briefcase, Code, Mail, Github, Linkedin } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useLanguageContext } from "@/hooks/useLanguage"
 
@@ -20,27 +20,37 @@ export function QuickNav() {
   }
 
   return (
-    <div className="flex flex-col items-center space-y-6 mt-12">
+    <div className="flex flex-col space-y-6 mt-12">
       {/* Quick Navigation Pills */}
-      <div className="flex flex-wrap justify-center gap-3">
+      <div className="flex flex-wrap gap-3">
         {quickLinks.map((link) => (
           <Button
             key={link.name}
             variant="outline"
             size="sm"
             onClick={() => scrollToSection(link.href)}
-            className="border-gray-600 bg-gray-800/50 text-gray-300 hover:bg-gray-700 hover:text-white hover:border-cyan-400 transition-all duration-300 backdrop-blur-sm"
           >
             <link.icon className="mr-2 h-4 w-4" />
             {link.name}
           </Button>
         ))}
-      </div>
-
-      {/* Scroll Down Indicator */}
-      <div className="flex flex-col items-center space-y-2 text-gray-400">
-        <span className="text-sm">{t('nav.explore')}</span>
-        <ArrowDown className="h-5 w-5 animate-bounce" />
+        {/* github and linkedin links */}
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={() => window.open("https://github.com", "_blank")}
+        >
+          <Github className="mr-2 h-4 w-4" />
+          Github
+        </Button>
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={() => window.open("https://linkedin.com", "_blank")}
+        >
+          <Linkedin className="mr-2 h-4 w-4" />
+          Linkedin
+        </Button>
       </div>
     </div>
   )

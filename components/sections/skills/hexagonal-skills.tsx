@@ -7,12 +7,12 @@ type HexagonalSkillsProps = {
   skills: Skill[]
 }
 
-const HexagonalIcon = ({ IconComponent}:{ IconComponent: React.ElementType}) => <IconComponent className={cn("text-white")} size={20}/>
+const HexagonalIcon = ({ IconComponent}:{ IconComponent: React.ElementType}) => <IconComponent className={cn("text-primary")} size={20}/>
 
 export function HexagonalSkills({ skills }: HexagonalSkillsProps) {
   return (
     <div className="flex justify-center">
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-4 gap-4">
         {skills.map((skill) => {
           const IconComponent = LucideIcons[skill.icon as keyof typeof LucideIcons]
 
@@ -21,7 +21,7 @@ export function HexagonalSkills({ skills }: HexagonalSkillsProps) {
               <HexagonalIcon
                 IconComponent={IconComponent as React.ElementType}
                   />
-                  <span className={cn("text-xs font-medium text-gray-300 transition-all duration-300 group-hover:text-white")}>
+                  <span className={cn("text-xs font-medium text-muted-foreground transition-all duration-300 group-hover:text-foreground")}>
                     {skill.name}
                   </span>
             </div>

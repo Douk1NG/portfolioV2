@@ -8,7 +8,7 @@ export function ExperienceSection() {
 
   return (
     <>
-      <div className="mx-auto max-w-7xl">
+      <div className="flex flex-col space-y-8">
         <SectionHeading
           title={t('experience.title')}
           description={t('experience.description')}

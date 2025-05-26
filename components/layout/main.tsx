@@ -8,7 +8,7 @@ export default function Main({sections}: {sections: Section[]}) {
                     key={section.id}
                     id={section.id}
                     data-section
-                    className="container mx-auto p-8 space-y-32 h-screen"
+                    className="container mx-auto p-8 space-y-32 min-h-screen"
                 >
                     {section.component}
                 </section>

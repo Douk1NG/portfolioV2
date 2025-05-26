@@ -7,15 +7,16 @@ const PillLanguageSwitcher = () => {
   const { language, toggleLanguage } = useLanguageSwitcher();
 
   return (
-    <div className="inline-flex items-center rounded-full border border-slate-600 bg-slate-800/50 p-1 backdrop-blur-sm shadow-lg">
+    <div className="inline-flex items-center rounded-full border border-border bg-secondary/30 p-1 backdrop-blur-sm shadow-lg">
       <Button
         variant="ghost"
         size="sm"
+        disabled={language === 'en'}
         onClick={() => language !== 'en' && toggleLanguage()}
-        className={`rounded-full px-3 py-1.5 text-sm font-medium transition-all duration-300 ${
-          language === 'en' 
-            ? 'bg-slate-600 text-white shadow-sm' 
-            : 'text-slate-300 hover:text-white hover:bg-slate-700/50'
+        className={`rounded-full px-3 py-1.5 text-sm font-medium transition-all duration-300 disabled:opacity-100 ${
+          language === 'en'
+            ? 'bg-primary text-primary-foreground shadow-sm'
+            : 'text-foreground hover:bg-primary/20 hover:text-primary'
         }`}
       >
         EN
@@ -23,11 +24,12 @@ const PillLanguageSwitcher = () => {
       <Button
         variant="ghost"
         size="sm"
+        disabled={language === 'es'}
         onClick={() => language !== 'es' && toggleLanguage()}
-        className={`rounded-full px-3 py-1.5 text-sm font-medium transition-all duration-300 ${
-          language === 'es' 
-            ? 'bg-slate-600 text-white shadow-sm' 
-            : 'text-slate-300 hover:text-white hover:bg-slate-700/50'
+        className={`rounded-full px-3 py-1.5 text-sm font-medium transition-all duration-300 disabled:opacity-100 ${
+          language === 'es'
+            ? 'bg-primary text-primary-foreground shadow-sm'
+            : 'text-foreground hover:bg-primary/20 hover:text-primary'
         }`}
       >
         ES

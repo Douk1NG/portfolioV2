@@ -8,7 +8,7 @@ import { Badge } from "@/components/ui/badge"
 import type { Project } from "@/types/project"
 import { useLanguageContext } from "@/hooks/useLanguage"
 
-interface ProjectCardProps {
+export interface ProjectCardProps {
   project: Project
 }
 
@@ -16,15 +16,15 @@ export function ProjectCard({ project }: ProjectCardProps) {
   const { t } = useLanguageContext();
 
   return (
-    <Card className="border-gray-700 bg-white/5 backdrop-blur-sm transition-all hover:bg-white/10">
+    <Card className="border-border bg-card/5 backdrop-blur-sm transition-all hover:bg-card/10">
       <CardContent className="p-6">
         <div className="space-y-4">
-          <h3 className="text-xl font-semibold text-white">{project.title}</h3>
-          <p className="text-gray-300">{project.description}</p>
+          <h3 className="text-xl font-semibold text-foreground">{project.title}</h3>
+          <p className="text-muted-foreground">{project.description}</p>
 
           <div className="flex flex-wrap gap-2">
             {project.tech.map((tech) => (
-              <Badge key={tech} variant="outline" className="border-gray-600 text-gray-300">
+              <Badge key={tech} variant="outline" className="border-border text-foreground bg-secondary/30">
                 {tech}
               </Badge>
             ))}
@@ -34,7 +34,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             <Button
               size="sm"
               variant="outline"
-              className="border-gray-600 text-gray-300 hover:bg-gray-800"
+              className="border-border text-foreground hover:bg-secondary hover:text-primary"
               onClick={() => window.open(project.github, "_blank")}
             >
               <Github className="mr-2 h-4 w-4" />
@@ -42,7 +42,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             </Button>
             <Button
               size="sm"
-              className="bg-gradient-to-r from-cyan-500 to-purple-500 text-white hover:from-cyan-600 hover:to-purple-600"
+              className="bg-primary text-primary-foreground hover:bg-primary/90"
               onClick={() => window.open(project.demo, "_blank")}
             >
               <ExternalLink className="mr-2 h-4 w-4" />

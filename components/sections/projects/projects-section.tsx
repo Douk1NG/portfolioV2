@@ -8,7 +8,7 @@ export function ProjectsSection() {
 
   return (
     <>
-      <div className="mx-auto max-w-7xl">
+      <div className="flex flex-col space-y-8">
         <SectionHeading
           title={t('projects.title')}
           description={t('projects.description')}

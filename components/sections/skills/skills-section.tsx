@@ -8,15 +8,12 @@ export function SkillsSection() {
 
   return (
     <>
-      <div className="mx-auto max-w-7xl">
+      <div className="flex flex-col space-y-8">
         <SectionHeading
           title={t('skills.title')}
           description={t('skills.description')}
         />
-
-        <div className="mt-16">
-          <HexagonalSkills skills={skillsData} />
-        </div>
+        <HexagonalSkills skills={skillsData} />
       </div>
     </>
   )

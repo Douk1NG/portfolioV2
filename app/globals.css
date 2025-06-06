@@ -39,7 +39,9 @@
     --chart-4: 182 64% 82%;
     --chart-5: 186 33% 20%;
 
-    --radius: 0.5rem
+    --radius: 0.5rem;
+
+    --text-shadow: 0 0 10px hsl(var(--background));
   }
 
   .dark {
@@ -76,6 +78,8 @@
     --chart-3: 207 25% 65%;
     --chart-4: 206 17% 92%;
     --chart-5: 206 25% 75%;
+
+    --text-shadow: 0 0 10px hsl(var(--background));
   }
 }
 

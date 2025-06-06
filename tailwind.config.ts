@@ -54,7 +54,10 @@ export default {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
-  		}
+  		},
+		dropShadow: {
+			'glow': '0 0 10px hsl(var(--foreground))',
+		}
   	}
   },
   plugins: [],

@@ -1,9 +1,12 @@
 "use client"
 import * as LucideIcons from "lucide-react"
-import type { Skill, SkillCategory } from "@/types/skills"
-import { LucideIcon } from "lucide-react"
+import { type LucideIcon } from "lucide-react"
 import { useState } from "react"
 import { ChevronDown, ChevronUp } from "lucide-react"
+import type { Skill, SkillCategory } from "@/types/skills/skill"
+import type { SkillBadgeProps } from "@/types/skills/skill-badge-props"
+import type { SkillCardProps } from "@/types/skills/skill-card-props"
+import type { HexagonalSkillsProps } from "@/types/skills/hexagonal-skills-props"
 
 type GroupedSkills = Record<SkillCategory, Skill[]>
 
@@ -38,7 +41,7 @@ function SkillLevelLegend() {
   )
 }
 
-function SkillBadge({ skill }: { skill: Skill }) {
+function SkillBadge({ skill }: SkillBadgeProps) {
   const Icon = LucideIcons[skill.icon as keyof typeof LucideIcons] as LucideIcon
   return (
     <div
@@ -51,17 +54,7 @@ function SkillBadge({ skill }: { skill: Skill }) {
   )
 }
 
-function SkillCard({
-  category,
-  skills,
-  isExpanded,
-  onToggle
-}: {
-  category: SkillCategory
-  skills: Skill[]
-  isExpanded: boolean
-  onToggle: () => void
-}) {
+function SkillCard({ category, skills, isExpanded, onToggle }: SkillCardProps) {
   return (
     <div className="bg-card rounded-2xl p-6 shadow-sm">
       <button
@@ -89,7 +82,7 @@ function SkillCard({
   )
 }
 
-function HexagonalSkills({ skills }: { skills: Skill[] }) {
+function HexagonalSkills({ skills }: HexagonalSkillsProps) {
   const grouped = groupSkills(skills)
   const [expandedCategories, setExpandedCategories] = useState<SkillCategory[]>(
     Object.keys(grouped) as SkillCategory[]

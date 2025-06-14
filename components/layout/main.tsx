@@ -1,9 +1,9 @@
-import { Section } from "@/types/section"
+import { type MainProps } from "@/types/layout/main-props"
 
-export default function Main({sections}: {sections: Section[]}) {
+export default function Main({ sections }: MainProps) {
     return (
         <main className="flex-1 overflow-auto">
-            {sections.map((section: Section) => (
+            {sections.map((section) => (
                 <section
                     key={section.id}
                     id={section.id}

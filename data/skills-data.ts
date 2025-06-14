@@ -1,4 +1,4 @@
-import type { Skill } from "@/types/skills"
+import type { Skill } from "@/types/skills/skill"
 
 export const skillsData: Skill[] = [
   // Frontend Development - UI Frameworks

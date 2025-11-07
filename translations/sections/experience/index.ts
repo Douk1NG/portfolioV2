@@ -1,0 +1,13 @@
+import { Translation } from "@/types/language";
+
+const en: Translation = {
+    'experience.title': 'Work Experience',
+    'experience.description': 'My professional journey and key achievements'
+}
+const es: Translation = {
+    'experience.title': 'Experiencia Laboral',
+    'experience.description': 'Mi trayectoria profesional y logros principales'
+}
+
+
+export default { en, es };

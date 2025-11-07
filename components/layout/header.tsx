@@ -19,7 +19,7 @@ export default function Header(
   return (
     <header className="md:hidden">
       <button
-        className="fixed top-6 left-6 z-50 p-3 rounded-xl bg-secondary/50 backdrop-blur-sm hover:bg-secondary/80 transition-colors"
+        className="fixed bottom-6 right-6 z-50 p-3 rounded-xl bg-secondary/50 backdrop-blur-sm hover:bg-secondary/80 transition-colors"
         onClick={openMenu}
         aria-label="Open menu"
         aria-expanded={isOpen}

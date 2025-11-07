@@ -10,7 +10,6 @@ export type InfoTag = {
   /** Translation key for the title */
   titleKey: string
   /** Translation key for the description */
-  descriptionKey: string
   /** Optional link URL */
   href?: string
 }
@@ -18,27 +17,22 @@ export type InfoTag = {
 export const infoTags: InfoTag[] = [
   {
     icon: Code2,
-    titleKey: 'hero.role',
-    descriptionKey: 'hero.role.description',
+    titleKey: 'hero.role'
   },
   {
     icon: MapPin,
-    titleKey: 'hero.location',
-    descriptionKey: 'hero.location.description',
+    titleKey: 'hero.location'
   },
   {
     icon: Github,
-    titleKey: 'hero.github',
-    descriptionKey: 'hero.github.description',
+    titleKey: 'hero.github'
   },
   {
     icon: Linkedin,
-    titleKey: 'hero.linkedin',
-    descriptionKey: 'hero.linkedin.description',
+    titleKey: 'hero.linkedin'
   },
   {
     icon: FileDown,
-    titleKey: 'hero.download',
-    descriptionKey: 'hero.download.description'
+    titleKey: 'hero.download'
   }
-] 
+]

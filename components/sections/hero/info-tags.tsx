@@ -7,7 +7,7 @@ export function InfoTags() {
   const { t } = useLanguageContext()
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-1 gap-2 sm:gap-4">
+    <div className="flex flex-wrap md:flex-col md:gap-4">
       {infoTags.map((tag, index) => {
         const Icon = tag.icon
         const TagComponent = tag.href ? 'a' : 'div'
@@ -15,22 +15,19 @@ export function InfoTags() {
           href: tag.href,
           target: "_blank",
           rel: "noopener noreferrer"
-        } : {}
+        } : null
 
         return (
           <TagComponent
             key={index}
             {...linkProps}
-            className="flex items-center gap-2 sm:gap-3 p-2 sm:p-4 rounded-lg bg-card border border-border hover:bg-accent transition-colors"
+            className="flex gap-2"
           >
-            <Icon className="w-4 h-4 sm:w-6 sm:h-6 text-primary" />
+            <Icon/>
             <div>
-              <h3 className="font-semibold text-sm sm:text-base text-foreground">
+              <h3>
                 {t(tag.titleKey)}
               </h3>
-              <p className="hidden md:block text-xs sm:text-sm text-muted-foreground">
-                {t(tag.descriptionKey)}
-              </p>
             </div>
           </TagComponent>
         )

@@ -20,7 +20,7 @@ export function MenuItem({
           transition-all`}
         onClick={onClose}
       >
-        <span className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 shadow-sm
+        <span className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 shadow-sm
           ${isActive
             ? 'bg-primary text-primary-foreground'
             : 'bg-secondary text-secondary-foreground'}`}>

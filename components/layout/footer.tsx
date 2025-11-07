@@ -8,7 +8,7 @@ export function Footer() {
   return (
     <footer>
       <p className="mx-auto max-w-7xl text-center text-muted-foreground">
-        Built with {heart} and Cursor
+        Built with {heart} and IA
       </p>
     </footer>
   )

@@ -25,14 +25,17 @@ export const infoTags: InfoTag[] = [
   },
   {
     icon: Github,
-    titleKey: 'hero.github'
+    titleKey: 'hero.github',
+    href: '.'
   },
   {
     icon: Linkedin,
-    titleKey: 'hero.linkedin'
+    titleKey: 'hero.linkedin',
+    href: '.'
   },
   {
     icon: FileDown,
-    titleKey: 'hero.download'
+    titleKey: 'hero.download',
+    href: '.'
   }
 ]

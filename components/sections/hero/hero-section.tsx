@@ -23,7 +23,7 @@ export function HeroSection() {
       </div>
 
       {/* Main Hero Content */}
-      <div className="grid lg:grid-cols-5 gap-12 sm:gap-16 w-full">
+      <div className="grid lg:grid-cols-5 gap-6 w-full">
         <div className="lg:col-span-3 space-y-6 sm:space-y-8">
 
           {/* Name and Desc */}
@@ -37,9 +37,9 @@ export function HeroSection() {
                   <span className="text-muted-foreground">{t('hero.surname')}</span>
                 </h1>
               </div>
-              <div className="md:hidden relative h-32 w-32 flex-shrink-0">
+              <div className="md:hidden relative h-32 w-32 shrink-0">
                 <div className="absolute inset-0 bg-accent/10 rounded-full " />
-                <div className="relative h-full w-full rounded-full overflow-hidden border-2  ">
+                <div className="relative h-full w-full rounded-full overflow-hidden border-2 drop-shadow-lg drop-shadow-cyan-500">
                   <Image
                     src={"/avatar3.jpg"}
                     alt="Portrait of Dibey Valencia"

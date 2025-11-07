@@ -4,6 +4,7 @@ import { MenuItem } from "./menu-item";
 import { MenuProps } from "@/types/menu";
 import LanguageSwitcher from "@/components/shared/LanguageSwitcher";
 import MenuThemeToggle from "@/components/shared/MenuThemeToggle";
+import { MobileNavigationButtons } from "./mobile-navigation-buttons";
 
 /** Mobile navigation header - for desktop, use the taskbar component */
 export default function Header(
@@ -19,14 +20,14 @@ export default function Header(
   return (
     <header className="md:hidden">
       <button
-        className="fixed bottom-6 right-6 z-50 p-3 rounded-xl bg-secondary/50 backdrop-blur-sm hover:bg-secondary/80 transition-colors"
+        className="fixed top-6 right-6 z-50 p-3 rounded-xl bg-secondary/50 backdrop-blur-sm hover:bg-secondary/80 transition-colors"
         onClick={openMenu}
         aria-label="Open menu"
         aria-expanded={isOpen}
       >
         <MenuIcon className="w-6 h-6 text-primary" />
       </button>
-
+      <MobileNavigationButtons currentSection={currentSection} />
       <nav
         ref={menuRef}
         className={`fixed inset-0 z-50 transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}

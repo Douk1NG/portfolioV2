@@ -48,11 +48,7 @@ export function useMenu(): UseMenuReturn {
     };
 
     // Handle body scroll lock when menu is open
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
+    document.body.style.overflow = isOpen ? 'hidden' : 'unset';
 
     // Add click outside detection
     document.addEventListener('mousedown', handleClickOutside);

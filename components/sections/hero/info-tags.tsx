@@ -24,7 +24,7 @@ export function InfoTags() {
   const { t } = useLanguageContext()
 
   return (
-    <div className="flex flex-wrap md:flex-col md:gap-4 gap-2 text-sm text-muted-foreground">
+    <div className="flex flex-wrap gap-2 text-sm text-muted-foreground">
       {infoTags.map(({ icon, href, titleKey }) => {
 
         const content = (

@@ -1,283 +1,96 @@
-import type { Skill } from "@/types/skills"
+import type { SkillGroup } from "@/types/skills"
 
-export const skillsData: Skill[] = [
-  // Frontend Development - UI Frameworks
+export const skillsData: SkillGroup[] = [
   {
-    name: "React",
-    level: "expert",
-    icon: "SquareCode",
-    group: "Frontend Development",
-    subcategory: "UI Frameworks",
-    category: "frontend"
+    name: "Frontend Development",
+    subcategories: [
+      {
+        name: "UI Frameworks",
+        skills: [
+          { name: "React", level: "expert", icon: "SquareCode", category: "frontend" },
+          { name: "Next.js", level: "expert", icon: "Triangle", category: "frontend" },
+          { name: "React Native", level: "intermediate", icon: "Smartphone", category: "frontend" },
+        ]
+      },
+      {
+        name: "Styling & Design",
+        skills: [
+          { name: "Tailwind", level: "expert", icon: "Wind", category: "frontend" },
+          { name: "CSS", level: "expert", icon: "Paintbrush", category: "frontend" },
+          { name: "Styled Components", level: "advanced", icon: "Component", category: "frontend" },
+        ]
+      },
+      {
+        name: "State Management",
+        skills: [
+          { name: "Redux", level: "advanced", icon: "Repeat", category: "frontend" },
+          { name: "React Query", level: "advanced", icon: "Database", category: "frontend" },
+          { name: "Zustand", level: "intermediate", icon: "Box", category: "frontend" },
+        ]
+      },
+      {
+        name: "Form & Validation",
+        skills: [
+          { name: "React Hook Form", level: "expert", icon: "FormInput", category: "frontend" },
+          { name: "Zod", level: "advanced", icon: "Shield", category: "frontend" },
+          { name: "Yup", level: "advanced", icon: "CheckCircle", category: "frontend" },
+        ]
+      },
+      {
+        name: "Build & Tooling",
+        skills: [
+          { name: "Vite", level: "advanced", icon: "Zap", category: "tools" },
+          { name: "Webpack", level: "intermediate", icon: "Package", category: "tools" },
+          { name: "TypeScript", level: "expert", icon: "FileType", category: "languages" },
+        ]
+      }
+    ]
   },
   {
-    name: "Next.js",
-    level: "expert",
-    icon: "Triangle",
-    group: "Frontend Development",
-    subcategory: "UI Frameworks",
-    category: "frontend"
+    name: "Backend & Database",
+    skills: [
+      { name: "Express", level: "advanced", icon: "ServerCog", category: "backend" },
+      { name: "PostgreSQL", level: "advanced", icon: "Database", category: "database" },
+      { name: "MongoDB", level: "intermediate", icon: "Layers", category: "database" },
+      { name: "REST APIs", level: "expert", icon: "Webhook", category: "backend" },
+    ]
   },
   {
-    name: "React Native",
-    level: "intermediate",
-    icon: "Smartphone",
-    group: "Frontend Development",
-    subcategory: "UI Frameworks",
-    category: "frontend"
-  },
-
-  // Frontend Development - Styling & Design
-  {
-    name: "Tailwind",
-    level: "expert",
-    icon: "Wind",
-    group: "Frontend Development",
-    subcategory: "Styling & Design",
-    category: "frontend"
+    name: "DevOps & Cloud",
+    skills: [
+      { name: "Docker", level: "intermediate", icon: "Box", category: "devops" },
+      { name: "AWS", level: "intermediate", icon: "Cloud", category: "devops" },
+      { name: "CI/CD", level: "intermediate", icon: "GitMerge", category: "devops" },
+      { name: "Vercel", level: "advanced", icon: "Triangle", category: "devops" },
+    ]
   },
   {
-    name: "CSS",
-    level: "expert",
-    icon: "Paintbrush",
-    group: "Frontend Development",
-    subcategory: "Styling & Design",
-    category: "frontend"
+    name: "Testing & Quality",
+    skills: [
+      { name: "Vitest", level: "advanced", icon: "TestTube", category: "tools" },
+      { name: "Jest", level: "advanced", icon: "TestTube", category: "tools" },
+      { name: "Postman", level: "advanced", icon: "Network", category: "tools" },
+    ]
   },
   {
-    name: "Styled Components",
-    level: "advanced",
-    icon: "Component",
-    group: "Frontend Development",
-    subcategory: "Styling & Design",
-    category: "frontend"
-  },
-
-  // Frontend Development - State Management
-  {
-    name: "Redux",
-    level: "advanced",
-    icon: "Repeat",
-    group: "Frontend Development",
-    subcategory: "State Management",
-    category: "frontend"
+    name: "Tools & Workflow",
+    skills: [
+      { name: "Git", level: "expert", icon: "GitBranch", category: "tools" },
+      { name: "GitHub", level: "expert", icon: "Github", category: "tools" },
+      { name: "Figma", level: "intermediate", icon: "Figma", category: "tools" },
+      { name: "VS Code", level: "expert", icon: "Code", category: "tools" },
+    ]
   },
   {
-    name: "React Query",
-    level: "advanced",
-    icon: "Database",
-    group: "Frontend Development",
-    subcategory: "State Management",
-    category: "frontend"
-  },
-  {
-    name: "Zustand",
-    level: "intermediate",
-    icon: "Box",
-    group: "Frontend Development",
-    subcategory: "State Management",
-    category: "frontend"
-  },
-
-  // Frontend Development - Form & Validation
-  {
-    name: "React Hook Form",
-    level: "expert",
-    icon: "FormInput",
-    group: "Frontend Development",
-    subcategory: "Form & Validation",
-    category: "frontend"
-  },
-  {
-    name: "Zod",
-    level: "advanced",
-    icon: "Shield",
-    group: "Frontend Development",
-    subcategory: "Form & Validation",
-    category: "frontend"
-  },
-  {
-    name: "Yup",
-    level: "advanced",
-    icon: "CheckCircle",
-    group: "Frontend Development",
-    subcategory: "Form & Validation",
-    category: "frontend"
-  },
-
-  // Frontend Development - Build & Tooling
-  {
-    name: "Vite",
-    level: "advanced",
-    icon: "Zap",
-    group: "Frontend Development",
-    subcategory: "Build & Tooling",
-    category: "tools"
-  },
-  {
-    name: "Webpack",
-    level: "intermediate",
-    icon: "Package",
-    group: "Frontend Development",
-    subcategory: "Build & Tooling",
-    category: "tools"
-  },
-  {
-    name: "TypeScript",
-    level: "expert",
-    icon: "FileType",
-    group: "Frontend Development",
-    subcategory: "Build & Tooling",
-    category: "languages"
-  },
-
-  // Backend & Database
-  {
-    name: "Express",
-    level: "advanced",
-    icon: "ServerCog",
-    group: "Backend & Database",
-    category: "backend"
-  },
-  {
-    name: "PostgreSQL",
-    level: "advanced",
-    icon: "Database",
-    group: "Backend & Database",
-    category: "database"
-  },
-  {
-    name: "MongoDB",
-    level: "intermediate",
-    icon: "Layers",
-    group: "Backend & Database",
-    category: "database"
-  },
-  {
-    name: "REST APIs",
-    level: "expert",
-    icon: "Webhook",
-    group: "Backend & Database",
-    category: "backend"
-  },
-
-  // DevOps & Cloud
-  {
-    name: "Docker",
-    level: "intermediate",
-    icon: "Box",
-    group: "DevOps & Cloud",
-    category: "devops"
-  },
-  {
-    name: "AWS",
-    level: "intermediate",
-    icon: "Cloud",
-    group: "DevOps & Cloud",
-    category: "devops"
-  },
-  {
-    name: "CI/CD",
-    level: "intermediate",
-    icon: "GitMerge",
-    group: "DevOps & Cloud",
-    category: "devops"
-  },
-  {
-    name: "Vercel",
-    level: "advanced",
-    icon: "Triangle",
-    group: "DevOps & Cloud",
-    category: "devops"
-  },
-
-  // Testing & Quality
-  {
-    name: "Vitest",
-    level: "advanced",
-    icon: "TestTube",
-    group: "Testing & Quality",
-    category: "tools"
-  },
-  {
-    name: "Jest",
-    level: "advanced",
-    icon: "TestTube",
-    group: "Testing & Quality",
-    category: "tools"
-  },
-  {
-    name: "Postman",
-    level: "advanced",
-    icon: "Network",
-    group: "Testing & Quality",
-    category: "tools"
-  },
-
-  // Tools & Workflow
-  {
-    name: "Git",
-    level: "expert",
-    icon: "GitBranch",
-    group: "Tools & Workflow",
-    category: "tools"
-  },
-  {
-    name: "GitHub",
-    level: "expert",
-    icon: "Github",
-    group: "Tools & Workflow",
-    category: "tools"
-  },
-  {
-    name: "Figma",
-    level: "intermediate",
-    icon: "Figma",
-    group: "Tools & Workflow",
-    category: "tools"
-  },
-  {
-    name: "VS Code",
-    level: "expert",
-    icon: "Code",
-    group: "Tools & Workflow",
-    category: "tools"
-  },
-
-  // Soft Skills
-  {
-    name: "Problem Solving",
-    level: "expert",
-    icon: "Brain",
-    group: "Soft Skills",
-    category: "tools"
-  },
-  {
-    name: "Team Collaboration",
-    level: "expert",
-    icon: "Users",
-    group: "Soft Skills",
-    category: "tools"
-  },
-  {
-    name: "Adaptability",
-    level: "advanced",
-    icon: "Shuffle",
-    group: "Soft Skills",
-    category: "tools"
-  },
-  {
-    name: "Time Management",
-    level: "expert",
-    icon: "Clock",
-    group: "Soft Skills",
-    category: "tools"
-  },
-  {
-    name: "Communication",
-    level: "expert",
-    icon: "MessageSquare",
-    group: "Soft Skills",
-    category: "tools"
+    name: "Soft Skills",
+    skills: [
+      { name: "Problem Solving", icon: "Brain", category: "tools" },
+      { name: "Team Collaboration", icon: "Users", category: "tools" },
+      { name: "Adaptability", icon: "Shuffle", category: "tools" },
+      { name: "Time Management", icon: "Clock", category: "tools" },
+      { name: "Communication", icon: "MessageSquare", category: "tools" },
+    ]
   }
 ]
+
+export const skillsName = skillsData.map((skill) => skill.name)

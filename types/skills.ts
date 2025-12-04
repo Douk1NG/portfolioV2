@@ -1,23 +1,5 @@
 export type SkillLevel = 'expert' | 'advanced' | 'intermediate' | 'basic';
 
-export type FrontendSubcategory = 
-  | "UI Frameworks"
-  | "Styling & Design"
-  | "State Management"
-  | "Form & Validation"
-  | "Build & Tooling"
-
-export type SkillGroup =
-  | "Frontend Development"
-  | "Backend & Database"
-  | "DevOps & Cloud"
-  | "Testing & Quality"
-  | "Tools & Workflow"
-  | "Soft Skills"
-
-/**
- * Available skill categories
- */
 export type SkillCategory =
   | "languages"
   | "frontend"
@@ -27,19 +9,34 @@ export type SkillCategory =
   | "tools";
 
 /**
- * Skill entry type
+ * Individual skill item
  */
-export type Skill = {
-  /** Skill name */
+export type SkillItem = {
   name: string;
-  /** Icon identifier */
   icon: string;
-  /** Main category */
+  level?: SkillLevel;
   category: SkillCategory;
-  /** Skill group */
-  group: string;
-  /** Optional subcategory */
-  subcategory?: string;
-  /** Skill proficiency level */
-  level: SkillLevel;
 };
+
+/**
+ * Subcategory of skills (e.g., "UI Frameworks")
+ */
+export type SkillSubcategory = {
+  name: string;
+  skills: SkillItem[];
+};
+
+/**
+ * Top-level skill group (e.g., "Frontend Development")
+ */
+export type SkillGroup = {
+  name: string;
+  // A group can either have direct skills OR subcategories, but usually not both mixed in this specific design
+  // We'll make it flexible
+  skills?: SkillItem[];
+  subcategories?: SkillSubcategory[];
+};
+
+// Keep the old Skill type for backward compatibility if needed, or remove it if we are sure.
+// The plan said "Refactor skills-data.ts and types", implying we change the types.
+// I will remove the old Skill type to force compilation errors where it's used, ensuring I catch all usages.

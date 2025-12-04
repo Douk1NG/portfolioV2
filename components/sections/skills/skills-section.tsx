@@ -7,13 +7,11 @@ export function SkillsSection() {
   const { t } = useLanguageContext();
 
   return (
-    <>
-      <div className="flex flex-col space-y-8">
-        <SectionHeading
-          title={t('skills.title')}
-        />
-        <HexagonalSkills skills={skillsData} />
-      </div>
-    </>
+    <div className="flex flex-col space-y-8">
+      <SectionHeading
+        title={t('skills.title')}
+      />
+      <HexagonalSkills skills={skillsData} />
+    </div>
   )
 }

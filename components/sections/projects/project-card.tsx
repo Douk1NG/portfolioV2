@@ -1,7 +1,7 @@
 "use client"
 
 import { ExternalLink } from "lucide-react"
-import { SiGithub as Github} from '@icons-pack/react-simple-icons';
+import { SiGithub as Github } from '@icons-pack/react-simple-icons';
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -19,15 +19,15 @@ export function ProjectCard({ project }: ProjectCardProps) {
   const { t } = useLanguageContext();
 
   return (
-    <Card className="border-border bg-card/5 backdrop-blur-sm transition-all hover:bg-card/10">
+    <Card className=" bg-card/5 backdrop-blur-sm transition-all hover:bg-card/10">
       <CardContent className="p-6">
         <div className="space-y-4">
-          <h3 className="text-xl font-semibold text-foreground">{project.title}</h3>
-          <p className="text-muted-foreground">{project.description}</p>
+          <h3 className="text-xl font-semibold text-foreground">{t(project.title)}</h3>
+          <p className="text-muted-foreground">{t(project.description)}</p>
 
           <div className="flex flex-wrap gap-2">
             {project.tech.map((tech) => (
-              <Badge key={tech} variant="outline" className="border-border text-foreground bg-secondary/30">
+              <Badge key={tech} variant="outline" className=" text-foreground bg-secondary/30">
                 {tech}
               </Badge>
             ))}
@@ -37,7 +37,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             <Button
               size="sm"
               variant="outline"
-              className="border-border text-foreground hover:bg-secondary hover:text-primary"
+              className=" text-foreground hover:bg-secondary hover:text-primary"
               onClick={() => window.open(project.github, "_blank")}
             >
               <Github className="mr-2 h-4 w-4" />

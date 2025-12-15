@@ -2,38 +2,52 @@
 
 import { useLanguageContext } from '@/hooks/useLanguage'
 import { infoTags } from '@/data/info-tags'
+import { ComponentProps, ElementType } from 'react'
+
+function InfoTag({
+  icon: Icon,
+  children,
+  ...props
+}: ComponentProps<'span'> & { icon: ElementType }) {
+  return (
+    <span
+      className="flex gap-2 items-center border border-secondary-foreground/20 rounded-full px-3 py-1 md:border-none"
+      {...props}
+    >
+      <Icon />
+      {children}
+    </span>
+  )
+}
 
 export function InfoTags() {
   const { t } = useLanguageContext()
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-1 gap-2 sm:gap-4">
-      {infoTags.map((tag, index) => {
-        const Icon = tag.icon
-        const TagComponent = tag.href ? 'a' : 'div'
-        const linkProps = tag.href ? {
-          href: tag.href,
-          target: "_blank",
-          rel: "noopener noreferrer"
-        } : {}
+    <div className="flex flex-wrap gap-2 text-sm text-muted-foreground">
+      {infoTags.map(({ icon, href, titleKey }) => {
 
-        return (
-          <TagComponent
-            key={index}
-            {...linkProps}
-            className="flex items-center gap-2 sm:gap-3 p-2 sm:p-4 rounded-lg bg-card border border-border hover:bg-accent transition-colors"
-          >
-            <Icon className="w-4 h-4 sm:w-6 sm:h-6 text-primary" />
-            <div>
-              <h3 className="font-semibold text-sm sm:text-base text-foreground">
-                {t(tag.titleKey)}
-              </h3>
-              <p className="hidden md:block text-xs sm:text-sm text-muted-foreground">
-                {t(tag.descriptionKey)}
-              </p>
-            </div>
-          </TagComponent>
+        const content = (
+          <InfoTag key={titleKey} icon={icon}>
+            {t(titleKey)}
+          </InfoTag>
         )
+
+        if (href) {
+          return (
+            <a
+              key={titleKey}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className='underline hover:border-secondary-foreground hover:bg-secondary transition-colors rounded-full hover:font-semibold'
+            >
+              {content}
+            </a>
+          )
+        }
+
+        return content
       })}
     </div>
   )

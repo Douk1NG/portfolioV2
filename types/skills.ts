@@ -1,20 +1,24 @@
+<<<<<<< HEAD
 export type SkillLevel = 'expert' | 'advanced' | 'intermediate' | 'basic';
+=======
+import type { LucideIconName } from "@/components/shared/Icon";
+>>>>>>> ajustelin
 
-export type FrontendSubcategory = 
-  | "UI Frameworks"
-  | "Styling & Design"
-  | "State Management"
-  | "Form & Validation"
-  | "Build & Tooling"
+export type SkillCategory =
+  | "languages"
+  | "frontend"
+  | "backend"
+  | "database"
+  | "devops"
+  | "tools";
 
-export type SkillGroup =
-  | "Frontend Development"
-  | "Backend & Database"
-  | "DevOps & Cloud"
-  | "Testing & Quality"
-  | "Tools & Workflow"
-  | "Soft Skills"
+export type SkillItem = {
+  name: string;
+  icon: LucideIconName;
+  category: SkillCategory;
+};
 
+<<<<<<< HEAD
 /**
  * Available skill categories
  */
@@ -42,4 +46,11 @@ export type Skill = {
   subcategory?: string;
   /** Skill proficiency level */
   level: SkillLevel;
+=======
+export type SkillGroup = {
+  name: string;
+  skills: SkillItem[];
+  variant?: "feature" | "vertical" | "wide" | "default";
+  icon: LucideIconName;
+>>>>>>> ajustelin
 };

@@ -1,41 +1,38 @@
 "use client"
 
-import type React from "react"
-
-import { useState } from "react"
-import { Send } from "lucide-react"
+import { CheckCircle2, Send } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
-import { toast } from "@/hooks/use-toast"
 import { useLanguageContext } from "@/hooks/useLanguage"
+import { useContactForm } from "@/hooks/use-contact-form"
 
 export function ContactForm() {
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const { t } = useLanguageContext();
+  const { t } = useLanguageContext()
+  const { isSubmitting, isSuccess, submitForm } = useContactForm()
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500))
-
-    toast({
-      title: t('contact.success.title'),
-      description: t('contact.success.description'),
-    })
-
-    setIsSubmitting(false)
-    e.currentTarget.reset()
+  if (isSuccess) {
+    return (
+      <Card className="bg-card/20 backdrop-blur-sm">
+        <CardContent className="p-8 text-center flex flex-col items-center justify-center space-y-4 min-h-[400px]">
+          <div className="rounded-full bg-primary/10 p-6">
+            <CheckCircle2 className="h-12 w-12 text-primary" />
+          </div>
+          <h3 className="text-2xl font-bold">{t("contact.success.title")}</h3>
+          <p className="text-muted-foreground max-w-md mx-auto">
+            {t("contact.success.description")}
+          </p>
+        </CardContent>
+      </Card>
+    )
   }
 
   return (
-    <Card className="border-border bg-card/20 backdrop-blur-sm">
+    <Card className="bg-card/20 backdrop-blur-sm md:mx-92">
       <CardContent className="p-8">
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form onSubmit={submitForm} className="space-y-6">
           <div className="grid gap-6 sm:grid-cols-2">
             <div className="space-y-2">
               <Label htmlFor="name" className="text-foreground">
@@ -43,9 +40,10 @@ export function ContactForm() {
               </Label>
               <Input
                 id="name"
+                name="name"
                 placeholder={t('contact.name.placeholder')}
                 required
-                className="border-border bg-background text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-primary"
+                className=" bg-background text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-primary"
               />
             </div>
             <div className="space-y-2">
@@ -54,10 +52,11 @@ export function ContactForm() {
               </Label>
               <Input
                 id="email"
+                name="email"
                 type="email"
                 placeholder={t('contact.email.placeholder')}
                 required
-                className="border-border bg-background text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-primary"
+                className=" bg-background text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-primary"
               />
             </div>
           </div>
@@ -68,9 +67,10 @@ export function ContactForm() {
             </Label>
             <Input
               id="subject"
+              name="subject"
               placeholder={t('contact.subject.placeholder')}
               required
-              className="border-border bg-background text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-primary"
+              className=" bg-background text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-primary"
             />
           </div>
 
@@ -80,9 +80,10 @@ export function ContactForm() {
             </Label>
             <Textarea
               id="message"
+              name="message"
               placeholder={t('contact.message.placeholder')}
               required
-              className="min-h-32 border-border bg-background text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-primary"
+              className="min-h-32 md:min-h-[35vh] bg-background text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-primary"
             />
           </div>
 

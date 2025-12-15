@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useCallback, useState } from 'react';
 import { Language, LanguageContextType } from '@/types/language';
-import translations from '@/data/translations';
+import translations from '@/translations';
 
 /**
  * Context for managing the application's language state
@@ -52,4 +52,4 @@ export const useLanguageProvider = () => {
   };
 };
 
-export { LanguageContext }; 
+export { LanguageContext };

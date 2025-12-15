@@ -1,42 +1,43 @@
-'use client'
-
+import { HeroActions } from "./hero-actions"
 import { useLanguageContext } from "@/hooks/useLanguage"
-import PillLanguageSwitcher from "@/components/shared/PillLanguageSwitcher"
-import ThemeToggle from "@/components/shared/ThemeToggle"
-import FloatingTriangles from "./floating-triangles"
+import { useMediaQuery } from "@/hooks/use-media-query"
 import { InfoTags } from "./info-tags"
+import { HeroMobileHeader } from "./hero-mobile-header"
+import { HeroDesktopHeader } from "./hero-desktop-header"
+import { HeroDesktopImage } from "./hero-desktop-image"
 
 export function HeroSection() {
   const { t } = useLanguageContext()
+  const isMobile = useMediaQuery("(max-width: 768px)")
 
   return (
-    <div className="relative flex flex-col space-y-8">
-      <FloatingTriangles />
+    <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col justify-center">
+      <HeroActions />
 
-      {/* Language Switcher and Theme Toggle */}
-      <div className="hidden md:flex items-center gap-2 self-end">
-        <PillLanguageSwitcher />
-        <ThemeToggle />
-      </div>
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center pt-16">
 
-      {/* Main Hero Content */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-        {/* Left Column - Photo, Title and Description */}
-        <div className="space-y-6">
-          <div className="flex flex-col gap-4 items-center md:items-start mt-4">
-            <h1 className={`text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight drop-shadow-glow`}>
-              {t('hero.greeting')}
-            </h1>
+        <div className="md:col-span-7 space-y-6 md:space-y-8">
+          {!isMobile ? <HeroDesktopHeader /> : <HeroMobileHeader />}
+
+          <div className="flex items-center gap-3 text-sm text-muted-foreground pt-2">
+            <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-accent/50 border border-border/50">
+              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+              {t('hero.available')}
+            </div>
           </div>
-          <p className="text-lg text-muted-foreground leading-relaxed">
-            {t('hero.description')}
-          </p>
+
+          <div className="space-y-6 max-w-lg">
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed ">
+              {t('hero.description')}
+            </p>
+
+            <div className="pt-2">
+              <InfoTags />
+            </div>
+          </div>
         </div>
 
-        {/* Right Column - Links */}
-        <div className="space-y-6">
-          <InfoTags />
-        </div>
+        {!isMobile && <HeroDesktopImage />}
       </div>
     </div>
   )

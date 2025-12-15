@@ -38,7 +38,7 @@ export function Sidebar() {
                   scrollToSection(section.id)
                 }
               }}
-              className="flex flex-col items-center justify-center relative group no-underline p-2"
+              className="flex flex-col items-center justify-center relative group no-underline mt-2 md:mt-0"
             >
               <span
                 className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 relative z-10
@@ -48,7 +48,7 @@ export function Sidebar() {
               >
                 {section.icon}
               </span>
-              <span className={`mt-1 flex items-center justify-center text-sm font-medium select-none transition-colors duration-300
+              <span className={`text-nowrap mt-1 flex items-center justify-center text-sm font-medium select-none transition-colors duration-300
               ${currentActiveSection === section.id
                   ? 'text-primary font-semibold'
                   : 'text-muted-foreground group-hover:text-primary'}`}>

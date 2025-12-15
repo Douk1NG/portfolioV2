@@ -5,7 +5,7 @@ import ThemeToggle from "@/components/shared/ThemeToggle"
 
 export function HeroActions() {
     return (
-        <div className="absolute top-4 right-4 z-10 hidden md:flex">
+        <div className="absolute md:top-4 md:right-4 z-10 top-0">
             <div className="flex items-center gap-2">
                 <PillLanguageSwitcher />
                 <ThemeToggle />

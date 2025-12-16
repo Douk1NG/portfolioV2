@@ -20,7 +20,7 @@ export function HeroSection() {
           {!isMobile ? <HeroDesktopHeader /> : <HeroMobileHeader />}
 
           <div className="flex items-center gap-3 text-sm text-muted-foreground pt-2">
-            <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-accent/50 border border-border/50">
+            <div className="flex items-center gap-2 px-3 py-1 rounded-full  border border-border/50">
               <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
               {t('hero.available')}
             </div>

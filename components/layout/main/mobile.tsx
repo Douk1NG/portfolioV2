@@ -12,7 +12,6 @@ export function MobileMain({ sections }: { sections: Section[] }) {
                 {sections.map((section) => (
                     <div key={section.id} className="flex-[0_0_100%] min-w-0 relative h-full overflow-y-auto">
                         <section
-                            // Remove ID and data-section to avoid duplicate IDs and Observer conflicts
                             className="container mx-auto p-4 min-h-full pb-24"
                         >
                             {section.component}

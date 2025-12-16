@@ -43,6 +43,7 @@ export function useContactForm() {
                 })
             }
         } catch (error) {
+            console.error(error)
             toast({
                 variant: "destructive",
                 title: "Error",
